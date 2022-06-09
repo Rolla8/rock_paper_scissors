@@ -16,8 +16,15 @@ function computerPlay() {
     }
 }
 
-const playerSelection = "paper";
-const computerSelection = computerPlay();
+
+let playerSelection = prompt('Let\'s play! Write your choice: rock, paper or scissors!').toLowerCase();
+if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors') {
+    alert('Go');
+} else {
+    alert('Set your choice right');
+}
+
+let computerSelection = computerPlay();
 
 function playRound(computerSelection, playerSelection) {
 
