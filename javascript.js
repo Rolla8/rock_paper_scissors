@@ -17,26 +17,19 @@ function computerPlay() {
 }
 
 
-let playerSelection = prompt('Let\'s play! Write your choice: rock, paper or scissors!').toLowerCase();
-if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors') {
-    alert('Go');
-} else {
-    alert('Set your choice right');
-}
 
-let computerSelection = computerPlay();
 
 function playRound(computerSelection, playerSelection) {
 
     const rockAgainstScissors = 'You lose! Rock beats scissors.';
     const paperAgainstRock = 'You lose! Paper beats rock.';
-    const scissorsAgainstPaper = 'You lose! Scissors beat paper';
+    const scissorsAgainstPaper = 'You lose! Scissors beat paper.';
     const rockAndRock = 'It is a tie! Rock and Rock.';
-    const paperAndPaper = 'It is a tie! Paper and paper';
-    const scissorsAndScissors = 'It is a tie! Scissors and scissors';
-    const scissorsAgainstRock = 'You won! Rock beats scissors';
-    const rockAgainstPaper = 'You won! Paper beats rock';
-    const paperAgainstScissors = 'You won! Scissors beat paper';
+    const paperAndPaper = 'It is a tie! Paper and paper.';
+    const scissorsAndScissors = 'It is a tie! Scissors and scissors.';
+    const scissorsAgainstRock = 'You won! Rock beats scissors!';
+    const rockAgainstPaper = 'You won! Paper beats rock!';
+    const paperAgainstScissors = 'You won! Scissors beat paper!';
 
 
     if (computerSelection == 'rock' && playerSelection == 'scissors') {
@@ -59,3 +52,34 @@ function playRound(computerSelection, playerSelection) {
         return paperAgainstScissors;
     }
 }
+
+function game() {
+    let computerScore = 0;
+    let playerScore = 0;
+    for (i=0; i<5; i++) {
+        let playerSelection = prompt('Let\'s play! Write your choice: rock, paper or scissors!').toLowerCase();
+        let computerSelection = computerPlay();
+        let round = playRound(computerSelection, playerSelection)
+        console.log(playRound(computerSelection, playerSelection));
+        if (round == 'You lose! Rock beats scissors.' || round == 'You lose! Paper beats rock.' || round ==  'You lose! Scissors beat paper.') {
+            computerScore += 1;
+            console.log(`It is computer round! Score ${computerScore} - ${playerScore}`);
+        } else if (round == 'You won! Rock beats scissors!' || round == 'You won! Paper beats rock!' || round ==  'You won! Scissors beat paper!') {
+            playerScore += 1;
+            console.log(`Congrats! This round is yours! Score ${computerScore} - ${playerScore}`);
+        } else {
+            console.log(`Tie for now. Score ${computerScore} - ${playerScore}`)
+        }
+    }
+    if (computerScore > playerScore) {
+        return console.log(`Game over. Final score ${computerScore} - ${playerScore}`);
+    } else if (computerScore < playerScore) {
+        return console.log(`You won the game! Final score ${computerScore} - ${playerScore}`);
+    } else {
+        return console.log(`Tough spot. It is a tie. Final score ${computerScore} - ${playerScore}`);
+    }
+}
+
+
+
+
