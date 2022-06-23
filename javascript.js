@@ -60,11 +60,16 @@ const playerPaper = 'paper';
 const playerScissors = 'scissors';
 
 const btnRock = document.querySelector('#btn-rock');
-btnRock.addEventListener('click', () => {console.log(playRound(computerSelection, playerRock))});
+btnRock.addEventListener('click', () => {content.textContent = playRound(computerSelection, playerRock); results.append(content)});
 const btnPaper = document.querySelector('#btn-paper');
-btnPaper.addEventListener('click', () => {console.log(playRound(computerSelection, playerPaper))});
+btnPaper.addEventListener('click', () => {content.textContent = playRound(computerSelection, playerPaper); results.append(content)});
 const btnScissors = document.querySelector('#btn-scissors');
-btnScissors.addEventListener('click', () => {console.log(playRound(computerSelection, playerScissors))});
+btnScissors.addEventListener('click', () => {content.textContent = playRound(computerSelection, playerScissors); results.append(content)});
+
+const results = document.querySelector('#results');
+const content = document.createElement('div');
+content.classList.add('content');
+results.append(content)
 
 
 
