@@ -54,56 +54,43 @@ function playRound(computerSelection, playerSelection) {
     }
 }
 
+
 let computerSelection = computerPlay();
-const playerRock = 'rock';
-const playerPaper = 'paper';
-const playerScissors = 'scissors';
-
-const btnRock = document.querySelector('#btn-rock');
-btnRock.addEventListener('click', () => {content.textContent = playRound(computerSelection, playerRock); results.append(content)});
-const btnPaper = document.querySelector('#btn-paper');
-btnPaper.addEventListener('click', () => {content.textContent = playRound(computerSelection, playerPaper); results.append(content)});
-const btnScissors = document.querySelector('#btn-scissors');
-btnScissors.addEventListener('click', () => {content.textContent = playRound(computerSelection, playerScissors); results.append(content)});
-
 const results = document.querySelector('#results');
-const content = document.createElement('div');
+const content = document.createElement('p');
 content.classList.add('content');
-results.append(content)
+const resultScore = document.createElement('p')
+resultScore.classList.add('content')
 
+const btnSelection = document.querySelectorAll('[data-selection]');
+btnSelection.forEach(btnSelection => {
+    btnSelection.addEventListener('click', e => {
+        let playerSelection = btnSelection.dataset.selection
+        content.textContent = playRound(computerSelection, playerSelection)
+        results.append(content);
+        playGame()
+    })
+})
 
-
-
-/*
-
-function game() {
+function playGame() {
     let computerScore = 0;
     let playerScore = 0;
-    for (i=0; i<5; i++) {
-        let playerSelection = prompt('Let\'s play! Write your choice: rock, paper or scissors!').toLowerCase();
-        let computerSelection = computerPlay();
-        let round = playRound(computerSelection, playerSelection)
-        console.log(playRound(computerSelection, playerSelection));
-        if (round == 'You lose! Rock beats scissors.' || round == 'You lose! Paper beats rock.' || round ==  'You lose! Scissors beat paper.') {
-            computerScore += 1;
-            console.log(`It is computer round! Score ${computerScore} - ${playerScore}`);
-        } else if (round == 'You won! Rock beats scissors!' || round == 'You won! Paper beats rock!' || round ==  'You won! Scissors beat paper!') {
-            playerScore += 1;
-            console.log(`Congrats! This round is yours! Score ${computerScore} - ${playerScore}`);
-        } else {
-            console.log(`Tie for now. Score ${computerScore} - ${playerScore}`)
-        }
-    }
-    if (computerScore > playerScore) {
-        return console.log(`Game over. Final score ${computerScore} - ${playerScore}`);
-    } else if (computerScore < playerScore) {
-        return console.log(`You won the game! Final score ${computerScore} - ${playerScore}`);
+    let round = content.textContent;
+    
+    if (round == 'You lose! Rock beats scissors.' || round == 'You lose! Paper beats rock.' || round ==  'You lose! Scissors beat paper.') {
+        computerScore += 1;
+        resultScore.textContent = `It is computer round! Score ${computerScore} - ${playerScore}`
+        results.append(resultScore);
+    } else if (round == 'You won! Rock beats scissors!' || round == 'You won! Paper beats rock!' || round ==  'You won! Scissors beat paper!') {
+        playerScore += 1;
+        resultScore.textContent = `Congrats! This round is yours! Score ${computerScore} - ${playerScore}`;
+        results.append(resultScore);
     } else {
-        return console.log(`Tough spot. It is a tie. Final score ${computerScore} - ${playerScore}`);
+        resultScore.textContent = `Tie for now. Score ${computerScore} - ${playerScore}`;
+        results.append(resultScore);
     }
 }
-*/
 
 
 
-
+    
