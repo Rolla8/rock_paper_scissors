@@ -76,7 +76,6 @@ function playGame() {
     let computerScore = 0;
     let playerScore = 0;
     let round = content.textContent;
-    
     if (round == 'You lose! Rock beats scissors.' || round == 'You lose! Paper beats rock.' || round ==  'You lose! Scissors beat paper.') {
         computerScore += 1;
         resultScore.textContent = `It is computer round! Score ${computerScore} - ${playerScore}`
@@ -90,6 +89,7 @@ function playGame() {
         results.append(resultScore);
     }
 }
+
 
 
 
