@@ -19,6 +19,7 @@ function computerPlay() {
 
 
 
+
 function playRound(computerSelection, playerSelection) {
 
     const rockAgainstScissors = 'You lose! Rock beats scissors.';
@@ -53,6 +54,23 @@ function playRound(computerSelection, playerSelection) {
     }
 }
 
+let computerSelection = computerPlay();
+const playerRock = 'rock';
+const playerPaper = 'paper';
+const playerScissors = 'scissors';
+
+const btnRock = document.querySelector('#btn-rock');
+btnRock.addEventListener('click', () => {console.log(playRound(computerSelection, playerRock))});
+const btnPaper = document.querySelector('#btn-paper');
+btnPaper.addEventListener('click', () => {console.log(playRound(computerSelection, playerPaper))});
+const btnScissors = document.querySelector('#btn-scissors');
+btnScissors.addEventListener('click', () => {console.log(playRound(computerSelection, playerScissors))});
+
+
+
+
+/*
+
 function game() {
     let computerScore = 0;
     let playerScore = 0;
@@ -79,6 +97,7 @@ function game() {
         return console.log(`Tough spot. It is a tie. Final score ${computerScore} - ${playerScore}`);
     }
 }
+*/
 
 
 

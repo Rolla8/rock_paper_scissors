@@ -16,3 +16,7 @@ Create variables computerSelection and playerSelection (playerSelection paramete
 Use prompt function to get playerSelection parameter;
 Create function playRound(), this function takes two parameters - playerSelection and computerSelection - compares it and then return a string that declares the winner of the  round;
 Create function game() that would keep score and report winner or loser  at the end (use loop);
+
+Adding UI to the game:
+Create a buttons fo player choices.
+
